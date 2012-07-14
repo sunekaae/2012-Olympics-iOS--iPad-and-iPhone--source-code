@@ -606,6 +606,14 @@
 				GCC_PREFIX_HEADER = _012_Olympics_Prefix.pch;
 				INFOPLIST_FILE = "_012_Olympics-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRANK_LIBRARY_SEARCH_PATHS)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(FRANK_LDFLAGS)",
+				);
 				PRODUCT_NAME = "2012 Olympics";
 			};
 			name = Debug;
