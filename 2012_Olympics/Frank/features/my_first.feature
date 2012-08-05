@@ -1,3 +1,4 @@
+@rotating
 Feature: 
   As an iOS developer
   I want to have a sample feature file
@@ -6,7 +7,12 @@ Feature:
 Scenario: 
     Rotating the simulator for demonstration purposes
 Given I launch the app
+Then I save a screenshot with prefix rotating
 Given the device is in landscape orientation
+Then I save a screenshot with prefix rotating
 Given the device is in portrait orientation
+Then I save a screenshot with prefix rotating
 Given the device is in landscape orientation
+Then I save a screenshot with prefix rotating
 Given the device is in portrait orientation
+Then I save a screenshot with prefix rotating
