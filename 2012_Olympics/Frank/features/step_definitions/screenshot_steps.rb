@@ -29,7 +29,7 @@ def screenshotFromPrefix prefix
   screenshotWithScreencapture(filenameWithRelativePath)
  end
  
- sleep 1 # wait a second to give screenshot time to finish.
+ sleep 0.5 # wait a bit to give any transitions and screenshot time to finish.
  
  # add thumbnail of screenshot to the standard cucumber report as an HTML <img> element, with <a> link to full size
  showImageInReport(filenameWithRelativePath)
@@ -40,7 +40,7 @@ def isCropperAvailable
   # Suggest to include a .zip'ed version of the .app dir in your SCM, eg "iOS-Simulator Cropper.app.zip"
   # then use build system / rake to do the unzip
   # Or, download the .zip from a trusted/reliable location, and include in build process
-  File.directory? "iOS-Simulator Cropper.app"
+  File.directory? "./iOS-Simulator Cropper.app"
 end
 
 # do a screenshot capture with the standard Mac screencapture command
