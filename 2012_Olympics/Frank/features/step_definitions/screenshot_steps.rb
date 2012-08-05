@@ -13,13 +13,18 @@
 
 
 # This is the same regex/phrasing as the original step from the compendium
+# It's just passes on the work to a method which can be used via code from other code
 Then /^I save a screenshot with prefix (\w+)$/ do |prefix|
+ screenshotFromPrefix(prefix)
+end
+
+def screenshotFromPrefix prefix
  # contruct filename based on the prefix and a timestamp (in millis to avoid overwriting screenshots taken close to each other)
  filenameWithRelativePath = "#{prefix}_#{DateTime.now.strftime('%Q')}.png"
 
  # use iOS-Simulator Cropper if it's available, and use the standard screencapture if it's not available
  if (isCropperAvailable) then
-  screenShotWithCropper(filenameWithRelativePath)
+  screenshotWithCropper(filenameWithRelativePath)
  else
   screenshotWithScreencapture(filenameWithRelativePath)
  end
@@ -44,7 +49,7 @@ def screenshotWithScreencapture filename
 end
 
 # do a screenshot capture with the cropper tool
-def screenShotWithCropper filename
+def screenshotWithCropper filename
   cmd = "./iOS-Simulator\\ Cropper.app/Contents/MacOS/iOS-Simulator\\ Cropper -f #{filename}"
   value = system( cmd )
 end
